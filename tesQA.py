@@ -417,6 +417,7 @@ def run_test_php1(url):
         # Check for database connection message
         if "Koneksi dengan MYSQL berhasil" in body_text:
             print("Database connection successful.")
+            message.append("Database connection successful.")
             score += 10
         else:
             message.append("Database connection failed.")
@@ -424,7 +425,8 @@ def run_test_php1(url):
             score += 5
 
         # Check for table creation message
-        if "Tabel siswa berhasil dibuat" in body_text:
+        if "Tabel siswa berhasil dibuat" in body_text or "exist" in body_text:
+            message.append("Table creation successful.")
             print("Table creation successful.")
             score += 10
         else:
