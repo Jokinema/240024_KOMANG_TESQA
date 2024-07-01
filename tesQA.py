@@ -681,11 +681,11 @@ def run_test_php6(url):
                 score += 10  # Award points for displaying a message
 
     except TimeoutException as e:
-        print("An element was not found: ", str(e))
-        massages.append("An element was not found: ", str(e))
+        print("An element was not found: " + str(e))
+        massages.append("An element was not found: "+ str(e))
     except Exception as e:
-        print("An error occurred: ", str(e))
-        massages.append("An error occurred: ", str(e))
+        print("An error occurred: " +  str(e))
+        massages.append("An error occurred: "+str(e))
     finally:
         driver.quit()
 
