@@ -255,7 +255,7 @@ def run_test4(url):
     options.add_argument("--log-path=chrome.log")
     driver = webdriver.Chrome(options=options)
     score = 0
-    max_score = 50
+    max_score = 25
     message= []
 
     try:
