@@ -36,10 +36,11 @@ def run_test1(url):
             # Check for the presence of the button
 
             score += 5  # Button exists, +5 points
-
+            message.append("Button exists")
             # Check if the button's text is "HelloWord"
             if button.text == "HelloWord":
                 score += 10  # Correct text, +10 points
+                message.append("Button text is incorrect")
             else:
                 message.append("Button text is incorrect")
                 score += 0  # Incorrect text, +0 points
@@ -71,6 +72,7 @@ def run_test1(url):
             # Check the text of the alert
             if alert_text == "Goodbye":
                 score += 10  # Correct alert text, +10 points
+                message.append("""Alert Text is correct""")
             else:
                 message.append("""Alert text is incorrect""")
                 score += 5  # Incorrect alert text, +5 points
@@ -111,6 +113,7 @@ def run_test2(url):
             )
             username_input.send_keys("admin")
             score += 10  # Presence and interaction successful, +10 points
+            message.append("""Presence and interaction successful""")
         except TimeoutException:
             message.append("Username input not found.")
             score += 0  # Username input missing, +0 points
@@ -122,8 +125,10 @@ def run_test2(url):
             )
             password_input.send_keys("password")
             score += 10  # Presence and interaction successful, +10 points
+            message.append("Presence and interaction successful")
         except TimeoutException:
             message.append("Password input not found.")
+            
             score += 0  # Password input missing, +0 points
 
         # Check for presence and interaction with the login button
@@ -133,6 +138,7 @@ def run_test2(url):
             )
             login_button.click()
             score += 10  # Button click successful, +10 points
+            message.append("Button click successful")
         except TimeoutException:
             message.append("Login button not clickable or not found.")
             score += 0  # Button missing or not clickable, +0 points
