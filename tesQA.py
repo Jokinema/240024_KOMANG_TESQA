@@ -485,8 +485,8 @@ def run_test_php2(url):
                 EC.presence_of_element_located((By.XPATH, "//body[contains(text(), 'Koneksi dengan MYSQL gagal')]"))
             )
             print("Database connection failed. Error: " + error_message.text)
-            message.append("Database connection failed. Error: " + error_message.text)
-            score += 5  # Partial score since the connection failed
+            messages.append("Database connection failed. Error: " + error_message.text)
+            messages += 5  # Partial score since the connection failed
         except TimeoutException:
             # No error message, assuming connection was successful
             messages.append("No error message found. Assuming database connection was successful.")
@@ -534,7 +534,7 @@ def run_test_php3(url):
         # Check for successful data insertion
         if "Data berhasil" in body_text:
             print("Data insertion successful.")
-            message.append("Data insertion successful.")
+            messages.append("Data insertion successful.")
             score += 10
         elif "Data gagal ditambahkan" in body_text:
             messages.append("Data insertion failed.")
