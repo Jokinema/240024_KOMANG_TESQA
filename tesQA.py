@@ -144,6 +144,7 @@ def run_test2(url):
             )
             print(success_message)
             print("Login success: 'Halo, admin!' found.")
+            message.append("Login success: 'Halo, admin!' found.")
             score += 20  # Correct success message found, +20 points
         except TimeoutException:
             # Check  for failure alert
@@ -153,6 +154,7 @@ def run_test2(url):
                 alert.accept()
                 if alert_text == "Login gagal.":
                     print("Login failed alert confirmed.")
+                    message.append("Login failed alert confirmed.")
                     score += 10  # Correct failure alert found, +10 points
                 else:
                     message.append("Unexpected alert text.")
@@ -204,6 +206,7 @@ def run_test3(url) :
         count_display = driver.find_element(By.TAG_NAME, "h1")
         if count_display.text == "22":
             print("Set to 22: Success")
+            message.append("Set to 22: Success")
             score += 15
         else:
             message.append("Set to 22: Fail")
@@ -213,6 +216,7 @@ def run_test3(url) :
         increment_button.click()
         if count_display.text == "23":
             print("Increment to 23: Success")
+            message.append("Increment to 23: Success")
             score += 15
         else:
             message.append("Increment to 23: Fail")
@@ -223,6 +227,7 @@ def run_test3(url) :
         decrement_button.click()  # Decrement twice
         if count_display.text == "21":
             print("Decrement to 21: Success")
+            message.append("Decrement to 21: Success")
             score += 15
         else:
             message.append("Decrement to 21: Fail")
@@ -232,6 +237,7 @@ def run_test3(url) :
         reset_button.click()
         if count_display.text == "0":
             print("Reset to 0: Success")
+            message.append("Reset to 0: Success")
             score += 15
         else:
             message.append("Reset to 0: Fail")
@@ -283,6 +289,7 @@ def run_test4(url):
             success_title = driver.find_element(By.CLASS_NAME, "swal2-title").text
             if success_title == "Login Successful!":
                 print("Successful login alert verified.")
+                message.append("Successful login alert verified.")
                 score += 25
         except TimeoutException:
             message.append("Sweet alert for successful login not found.")
@@ -303,6 +310,7 @@ def run_test4(url):
             fail_title = driver.find_element(By.CLASS_NAME, "swal2-title").text
             if fail_title == "Login Failed!":
                 print("Failed login alert verified.")
+                message.append("Failed login alert verified.")
                 score += 20
         except TimeoutException:
             message.append("Sweet alert for failed login not found.")
@@ -315,6 +323,7 @@ def run_test4(url):
         password_type = password_input.get_attribute("type")
         if password_type == "text":
             print("Password visibility toggle verified.")
+            message.append("Password visibility toggle verified.")
             score += 5
 
     except Exception as e:
@@ -469,6 +478,7 @@ def run_test_php2(url):
                 EC.presence_of_element_located((By.XPATH, "//body[contains(text(), 'Koneksi dengan MYSQL gagal')]"))
             )
             print("Database connection failed. Error: " + error_message.text)
+            message.append("Database connection failed. Error: " + error_message.text)
             score += 5  # Partial score since the connection failed
         except TimeoutException:
             # No error message, assuming connection was successful
@@ -508,6 +518,7 @@ def run_test_php3(url):
         # Check for database connection success or failure
         if "Koneksi dengan MYSQL berhasil" in body_text:
             print("Database connection successful.")
+            messages.append("Database connection successful.")
             score += 10
         elif "Koneksi dengan MYSQL gagal" in body_text:
             messages.append("Database connection failed.")
@@ -516,6 +527,7 @@ def run_test_php3(url):
         # Check for successful data insertion
         if "Data berhasil" in body_text:
             print("Data insertion successful.")
+            message.append("Data insertion successful.")
             score += 10
         elif "Data gagal ditambahkan" in body_text:
             messages.append("Data insertion failed.")
@@ -556,6 +568,7 @@ def run_test_php4(url):
         # Check for database connection success or failure
         if "Koneksi dengan MYSQL berhasil" in body_text:
             print("Database connection successful.")
+            messages.append("Database connection successful.")
             score += 10  # Full points for successful connection
         elif "Koneksi dengan MYSQL gagal" in body_text:
             print("Database connection failed.")
@@ -565,6 +578,7 @@ def run_test_php4(url):
         # Check for successful database creation
         if "Database berhasil" in body_text or "database exists"  in body_text :
             print("Database creation successful.")
+            messages.append("Database creation successful.")
             score += 10  # Full points for successful creation
         elif "Database gagal dibuat" in body_text:
             print("Database creation failed.")
@@ -616,6 +630,7 @@ def run_test_php5(url):
         current_url = driver.current_url
         if redirected_url in current_url:
             print("Redirection to selectTable_Siswa.php confirmed, indicating successful submission.")
+            messages.append("Redirection to selectTable_Siswa.php confirmed, indicating successful submission.")
             score += 20  # Full points for successful submission and correct redirection
         else:
             print("Failed to redirect after submission.")
@@ -624,11 +639,11 @@ def run_test_php5(url):
 
     except TimeoutException:
         print("The page did not redirect in time or the expected confirmation was not found.")
-        messages("The page did not redirect in time or the expected confirmation was not found.")
+        messages.append("The page did not redirect in time or the expected confirmation was not found.")
         score += 0  # No points if there's a timeout exception
     except Exception as e:
         print(f"An error occurred: {str(e)}")
-        messages(f"An error occurred: {str(e)}")
+        messages.append(f"An error occurred: {str(e)}")
     finally:
         driver.quit()
 
@@ -668,6 +683,7 @@ def run_test_php6(url):
             EC.presence_of_element_located((By.TAG_NAME, "form"))
         )
         print("Navigated to Add New Data form successfully.")
+        massages.append("Navigated to Add New Data form successfully.")
         score += 10  # Award points for successful navigation
 
         # Optionally, check for a message if there's a msg parameter in the URL
@@ -749,6 +765,7 @@ def  run_test_php7(selectEmail1, selectEmail2, editedEmail1, editedEmail2, url):
         if editedEmail1 in emails and selectEmail1 not in emails:
             score += 10
             print("Email updated successfully and verified in the table.")
+            messages.append("Email updated successfully and verified in the table.")
         else:
             print("Email update verification failed.")
             messages.append("Email update verification failed.")
@@ -798,6 +815,7 @@ def  run_test_php7(selectEmail1, selectEmail2, editedEmail1, editedEmail2, url):
             if editedEmail2 in emails and selectEmail2 not in emails:
                 score += 10
                 print("Email updated successfully and verified in the table.")
+                messages.append("Email updated successfully and verified in the table.")
             else:
                 print("Email update verification failed.")
                 messages.append("Email update verification failed.")
@@ -863,6 +881,7 @@ def run_test_php8(selectEmail1, selectEmail2, url):
         if selectEmail1 not in emails:
             score += 20
             print("Email updated successfully and verified in the table.")
+            messages.append("Email updated successfully and verified in the table.")
         else:
             print("Email update verification failed.")
             messages.append("Email update verification failed.")
@@ -900,6 +919,7 @@ def run_test_php8(selectEmail1, selectEmail2, url):
             print(emails)
             if selectEmail2 not in emails:
                 score += 20
+                messages.append("Email updated successfully and verified in the table.")
                 print("Email updated successfully and verified in the table.")
             else:
                 print("Email update verification failed.")
