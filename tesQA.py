@@ -40,7 +40,7 @@ def run_test1(url):
             # Check if the button's text is "HelloWord"
             if button.text == "HelloWord":
                 score += 10  # Correct text, +10 points
-                message.append("Button text is incorrect")
+                message.append("Button text is correct")
             else:
                 message.append("Button text is incorrect")
                 score += 0  # Incorrect text, +0 points
@@ -128,7 +128,7 @@ def run_test2(url):
             message.append("Presence and interaction successful")
         except TimeoutException:
             message.append("Password input not found.")
-            
+
             score += 0  # Password input missing, +0 points
 
         # Check for presence and interaction with the login button
