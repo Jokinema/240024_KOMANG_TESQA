@@ -59,6 +59,7 @@ def run_test1(url):
 
             # Check the text of the alert
             if alert_text == "Hello!":
+                message.append("""Alert text is correct""")
                 score += 10  # Correct alert text, +10 points
             else:
                 message.append("""Alert text is incorrect""")
