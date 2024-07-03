@@ -530,13 +530,19 @@ def run_test_php3(url):
         elif "Koneksi dengan MYSQL gagal" in body_text:
             messages.append("Database connection failed.")
             score += 5
-
+        else : 
+            messages.append("Database connection failed.")
+            score += 5
         # Check for successful data insertion
         if "Data berhasil" in body_text:
             print("Data insertion successful.")
             messages.append("Data insertion successful.")
             score += 10
         elif "Data gagal ditambahkan" in body_text:
+            messages.append("Data insertion failed.")
+            score += 5
+
+        else:
             messages.append("Data insertion failed.")
             score += 5
 
@@ -581,6 +587,10 @@ def run_test_php4(url):
             print("Database connection failed.")
             messages.append("Database connection failed.")
             score += 5  # Half points for connection failure
+        else :
+            print("Database connection failed.")
+            messages.append("Database connection failed.")
+            score += 5  # Half points for connection failure
 
         # Check for successful database creation
         if "Database berhasil" in body_text or "database exists"  in body_text :
@@ -591,7 +601,10 @@ def run_test_php4(url):
             print("Database creation failed.")
             messages.append("Database creation failed.")
             score += 5  # Half points for creation failure
-
+        else :
+            print("Database creation failed.")
+            messages.append("Database creation failed.")
+            score += 5 
     except TimeoutException:
         print("The page did not load in time or the expected text was not found.")
         messages.append("The page did not load in time or the expected text was not found.")
