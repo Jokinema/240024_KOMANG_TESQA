@@ -40,9 +40,9 @@ def run_test1(url):
             # Check if the button's text is "HelloWord"
             if button.text == "HelloWord":
                 score += 10  # Correct text, +10 points
-                message.append("Button text is correct")
+                message.append("Button text HelloWord is correct")
             else:
-                message.append("Button text is incorrect")
+                message.append("Button text HelloWord is incorrect")
                 score += 0  # Incorrect text, +0 points
 
         except TimeoutException:
@@ -59,10 +59,10 @@ def run_test1(url):
 
             # Check the text of the alert
             if alert_text == "Hello!":
-                message.append("""Alert text is correct""")
+                message.append("""Alert text Hello is correct""")
                 score += 10  # Correct alert text, +10 points
             else:
-                message.append("""Alert text is incorrect""")
+                message.append("""Alert text Hello is incorrect""")
                 score += 5  # Incorrect alert text, +5 points
 
             alert = WebDriverWait(driver, 2 + debug_delay).until(EC.alert_is_present())
@@ -73,9 +73,9 @@ def run_test1(url):
             # Check the text of the alert
             if alert_text == "Goodbye":
                 score += 10  # Correct alert text, +10 points
-                message.append("""Alert Text is correct""")
+                message.append("""Alert Text Goodbye is correct""")
             else:
-                message.append("""Alert text is incorrect""")
+                message.append("""Alert text Goodbye is incorrect""")
                 score += 5  # Incorrect alert text, +5 points
 
         except TimeoutException:
