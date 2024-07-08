@@ -83,7 +83,7 @@ def run_test1(url):
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
-        message.append(f"An error occurred: {str(e)}")
+        #message.append(f"An error occurred: {str(e)}")
     finally:
         driver.quit()
         return score, max, message
@@ -172,7 +172,7 @@ def run_test2(url):
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
-        message.append(f"An error occurred: {str(e)}")
+        #message.append(f"An error occurred: {str(e)}")
     finally:
         driver.quit()
 
@@ -251,7 +251,7 @@ def run_test3(url) :
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
-        message.append(f"Error: {str(e)}")
+        #message.append(f"Error: {str(e)}")
     finally:
         driver.quit()
 
@@ -398,7 +398,7 @@ def run_test5(url):
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
-        messages.append(f"An error occurred: {str(e)}")
+        #messages.append(f"An error occurred: {str(e)}")
     finally:
         driver.quit()
 
@@ -452,7 +452,7 @@ def run_test_php1(url):
 
     except Exception as e:
         print(f"An error occurred during the test: {str(e)}")
-        message.append(f"An error occurred during the test: {str(e)}")
+        #message.append(f"An error occurred during the test: {str(e)}")
 
     finally:
         driver.quit()
@@ -494,7 +494,7 @@ def run_test_php2(url):
 
     except Exception as e:
         print(f"An error occurred: {str(e)}")
-        messages.append(f"An error occurred: {str(e)}")
+        #messages.append(f"An error occurred: {str(e)}")
 
     finally:
         driver.quit()
@@ -551,7 +551,7 @@ def run_test_php3(url):
         messages.append("The page did not load in time or the expected text was not found.")
     except Exception as e:
         print(f"An error occurred: {str(e)}")
-        messages.append(f"An error occurred: {str(e)}")
+        #messages.append(f"An error occurred: {str(e)}")
     finally:
         driver.quit()
 
@@ -610,7 +610,7 @@ def run_test_php4(url):
         messages.append("The page did not load in time or the expected text was not found.")
     except Exception as e:
         print(f"An error occurred: {str(e)}")
-        messages.append(f"An error occurred: {str(e)}")
+        #messages.append(f"An error occurred: {str(e)}")
     finally:
         driver.quit()
 
@@ -663,7 +663,7 @@ def run_test_php5(url):
         score += 0  # No points if there's a timeout exception
     except Exception as e:
         print(f"An error occurred: {str(e)}")
-        messages.append(f"An error occurred: {str(e)}")
+        #messages.append(f"An error occurred: {str(e)}")
     finally:
         driver.quit()
 
@@ -721,7 +721,7 @@ def run_test_php6(url):
         massages.append(f"An element was not found: {str(e)}")
     except Exception as e:
         print(f"An error occurred:  {str(e)}")
-        massages.append(f"An error occurred:  {str(e)}")
+        #massages.append(f"An error occurred:  {str(e)}")
     finally:
         driver.quit()
 
@@ -847,7 +847,7 @@ def  run_test_php7(selectEmail1, selectEmail2, editedEmail1, editedEmail2, url):
 
     except Exception as e:
         print(f"Error navigating to edit page: {str(e)}")
-        messages.append(f"Error navigating to edit page: {str(e)}")
+        #messages.append(f"Error navigating to edit page: {str(e)}")
 
     finally:
         driver.quit()
@@ -953,7 +953,7 @@ def run_test_php8(selectEmail1, selectEmail2, url):
 
     except Exception as e:
         print(f"Error navigating to edit page: {str(e)}")
-        messages.append(f"Error navigating to edit page: {str(e)}")
+        #messages.append(f"Error navigating to edit page: {str(e)}")
 
     finally:
         driver.quit()
